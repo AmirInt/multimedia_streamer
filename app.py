@@ -79,12 +79,12 @@ def get_movies():
     for movie in movies:
         output.append({
             'name': movie.name,
-            'id': movie.id,
+            'id': str(movie.id),
             'address1': movie.address1,
             'address2': movie.address2,
-            'year': movie.year,
+            'year': str(movie.year),
             'director': movie.director,
-            'score': movie.score
+            'score': str(movie.score)
         })
     # print(output)
     # for movie in movies:
@@ -98,12 +98,12 @@ def get_movie(id):
     movie = Movie_Top_Chart.query.get_or_404(id)
     output = [{
             'name': movie.name,
-            'id': movie.id,
+            'id': str(movie.id),
             'address1': movie.address1,
             'address2': movie.address2,
-            'year': movie.year,
-            'director': movie.director, 
-            'score': movie.score
+            'year': str(movie.year),
+            'director': movie.director,
+            'score': str(movie.score)
         }]
     # print(output)
     # for movie in movies:
@@ -120,9 +120,9 @@ def get_top_picks():
         if movie.type == 1:
             output.append({
                 'name': movie.name,
-                'id': movie.id,
+                'id': str(movie.id),
                 'address': movie.address,
-                'year': movie.year,
+                'year': str(movie.year),
             })
     return json.dumps(output)
 
@@ -135,8 +135,8 @@ def get_fan_fav():
         if movie.type == 2:
             output.append({
                 'name': movie.name,
-                'id': movie.id,
+                'id': str(movie.id),
                 'address': movie.address,
-                'year': movie.year,
+                'year': str(movie.year),
             })
     return json.dumps(output)
