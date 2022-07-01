@@ -34,8 +34,13 @@ export default {
         slideRight() {
             if(this.displayedItem < this.itemsNumber)
                 ++this.displayedItem;
+        },
+        loadTrailer(trailerID) {
+            this.trailerID = trailerID;
+            this.page = 'trailer';
+            console.log(this.page);
         }
-    }
+    },
 }
 </script>
 
@@ -53,10 +58,10 @@ export default {
                 :style="{ left: `${-1 * (displayedItem - 1) * 61.2}vw` }">
                     <Titem
                     :id="item.id"
-                    :assetPath1="item.assetPath1"
-                    :assetPath2="item.assetPath2"
-                    :title="item.title"
+                    :title="item.name"
                     :year="item.year"
+                    :assetPath1="item.address1"
+                    :assetPath2="item.address2"
                     @click.prevent="trailerPageLoader(item.id)"
                     />
                 </div>

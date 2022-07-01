@@ -1,22 +1,29 @@
-<script setup>
-defineProps({
-    id: {
-        type: String,
-        required: true
+<script>
+export default {
+    props: {
+        id: {
+            type: String,
+            required: true
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        year: {
+            type: String,
+            required: true
+        },
+        assetPath: {
+            type: String,
+            required: true
+        },
     },
-    assetPath: {
-        type: String,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    year: {
-        type: String,
-        required: true
+    data() {
+        return {
+            displayTrailer: false
+        }
     }
-})
+}
 </script>
 
 <template>

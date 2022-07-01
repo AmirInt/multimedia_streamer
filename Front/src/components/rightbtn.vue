@@ -17,7 +17,7 @@ export default {
     <div class="slide-btn-container">
         <Transition>
             <div class="right-btn slide-btn" @click="clickCallback" v-show="display">
-                <img src="../assets/logos/up-arrow-svgrepo-com.svg" class="slide-btn-img"/>
+                <img src="../../public/logos/up-arrow-svgrepo-com.svg" class="slide-btn-img"/>
             </div>
         </Transition>
     </div>

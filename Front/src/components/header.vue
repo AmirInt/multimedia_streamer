@@ -57,7 +57,7 @@ export default {
             <a href="" @click.prevent>
                 <div @click="mainPageLoader">
                     <span>Home Page</span>
-                    <img class="home-img" src="../assets/logos/home-svgrepo-com.svg" />
+                    <img class="home-img" src="../../public/logos/home-svgrepo-com.svg" />
                 </div>
             </a>
         </div>

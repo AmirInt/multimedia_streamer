@@ -31,7 +31,8 @@ export default {
             if(this.lastItem < this.itemsList.length)
                 ++this.lastItem;
         }
-    }
+    },
+    mounted() {}
 }
 </script>
 
@@ -50,9 +51,9 @@ export default {
                 :style="{ left: `${-1 * (lastItem - 3) * 20}vw` }">
                     <Bitem
                     :id="item.id"
-                    :assetPath="item.assetPath"
-                    :title="item.title"
+                    :title="item.name"
                     :year="item.year"
+                    :assetPath="item.address"
                     />
                 </div>
             </div>
