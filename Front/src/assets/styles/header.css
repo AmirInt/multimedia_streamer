@@ -1,0 +1,62 @@
+header {
+    display: flex;
+    flex-direction: row;
+    height: 13vh;
+    background-color: black;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    transition: color 0.3s;
+    font-size: 4vh;
+    font-weight: 400;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    margin-right: 30vh;
+    padding: 2vh;
+    color: whitesmoke;
+}
+
+header div > a > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header a {
+    color: whitesmoke;
+    transition: color 0.3s;
+}
+
+header a:hover div {
+    color: #FFDD00;
+    transition: color 0.3s;
+}
+
+header a:hover .home-img {
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(20deg) brightness(1119%) contrast(119%);
+    transition: filter 0.3s;
+}
+
+header .home-img {
+    width: 6vh;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(119%) contrast(119%);
+    transition: filter 0.3s;
+}
+
+header span {
+    margin-right: 3vh;
+}
+
+header input {
+    width: 35vw;
+    height: 5vh;
+    border-radius: 1vh;
+    font: inherit;
+}

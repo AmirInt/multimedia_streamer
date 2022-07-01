@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,500&family=Oswald:wght@300;400;500&family=Roboto+Condensed:wght@300;400;700&family=Titillium+Web:wght@300;400;600&display=swap');
+
+body {
+    margin: auto;
+    background-color: #211E1E;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 5vh;
+}
+
+h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2 {
+    color: whitesmoke;
+}
+
+h3, h4 {
+    font-weight: 300;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10vh;
+    width: 100vw;
+    background-color: #191919;
+}
+
+.title-place {
+    width: 13vw;
+    border-right: solid #FFDD00 2vh;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #211E1E;
+}
+
+.title-holder {
+    background-color: #FFDD00;
+    padding: 3vh;
+}
+
+.div-title {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 6vh;
+    color: #191919;
+    margin-bottom: 5vh;
+}
+
+.holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+}
+
+.left-btn {
+    position: relative;
+    left: 4vh;
+    transform: rotate(-90deg);
+}
+
+.right-btn {
+    position: relative;
+    right: 4vh;
+    transform: rotate(90deg);
+}
+
+.slide-btn-container {
+    width: 10vh;
+}
+
+.slide-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 100%;
+    overflow: hidden;
+    border: solid 2px rgba(255, 255, 30, 0.4);
+    transition: border-color 0.3s;
+    z-index: 2;
+}
+
+.slide-btn:hover {
+    border-color: rgba(255, 255, 30, 1);
+    transition: border-color 0.3s;
+}
+
+.slide-btn-img {
+    width: 8vh;
+    height: 8vh;
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(40deg) brightness(119%) contrast(119%) opacity(40%);
+    transition: filter 0.3s;
+}
+
+.slide-btn:hover .slide-btn-img {
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(40deg) brightness(119%) contrast(119%) opacity(100%);
+    transition: filter 0.3s;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,14 @@
+.tlist {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    height: fit-content;
+    overflow: hidden;
+    background-color: #111111;
+}
+
+.titem-container {
+    position: relative;
+    transition: left 0.2s ease-out;
+    margin: 1%;
+}

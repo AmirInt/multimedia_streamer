@@ -1,0 +1,8 @@
+.lists-container {
+    margin-top: 13vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}

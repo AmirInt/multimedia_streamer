@@ -1,0 +1,35 @@
+.query-item {
+    width: 40vw;
+    height: 35vh;
+    position: absolute;
+    right: 5vw;
+    top: 10vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.query-item-error {
+    color: red;
+}
+
+.query-item-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 40vw;
+}
+
+.query-item-data > :nth-child(1) {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: solid #FFDD00 2vh;
+}
+
+.query-img {
+    width: 10vw;
+}

@@ -1,0 +1,13 @@
+.blist {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.bitem-container {
+    position: relative;
+    transition: left 0.2s ease-out;
+    margin: 1vw;
+}

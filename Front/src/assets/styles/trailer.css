@@ -1,0 +1,21 @@
+.trailer-container {
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trailer {
+    background-color: #191919;
+    display: flex;
+    flex-direction: row;
+}
+
+.trailer .title-place {
+    width: 26vw;
+}
+
+.video-container {
+    width: 60vw;
+    min-height: 70vh;
+}
