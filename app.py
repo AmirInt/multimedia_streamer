@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 from flask_cors import CORS, cross_origin
 
+from stream import Stream
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Movie_Trailer'
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -140,3 +142,9 @@ def get_fan_fav():
                 'year': str(movie.year),
             })
     return json.dumps(output)
+
+@app.route('/api/stream/<id>')
+@cross_origin()
+def start_stream(id):
+    link = Stream().start(id)
+    return json.dumps(link)
