@@ -6,6 +6,22 @@ export default {
 			required: true
 		}
 	},
+	methods: {
+		async fetchURL(id) {
+			await fetch(`http://localhost:5000/api/stream/${id}`)
+				.then((response) => {
+					return response.text();
+				})
+				.then((responseText) => {
+					console.log(responseText)
+					let player = dashjs.MediaPlayer().create();
+					player.initialize(document.querySelector(".video"), responseText, true);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
+	},
 	mounted() {
 		let url = '';
 		let id = this.filmData.id;
@@ -37,18 +53,7 @@ export default {
 				}
 			break;
 			default:
-			fetch(`http://localhost:5000/api/stream/${id}`)
-				.then((response) => {
-					return response.text();
-				})
-				.then((responseText) => {
-					console.log(responseText)
-					let player = dashjs.MediaPlayer().create();
-					player.initialize(document.querySelector(".video"), responseText, true);
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+				this.fetchURL(id);
 		}
 	}
 }
