@@ -14,6 +14,8 @@ db = SQLAlchemy(app)
 
 cors = CORS(app, resources={r'/api/*': {"origins": "*"}})
 
+# print(Stream().start(1))
+
 class Movie_Top_Chart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
@@ -146,5 +148,6 @@ def get_fan_fav():
 @app.route('/api/stream/<id>')
 @cross_origin()
 def start_stream(id):
+    # print(Stream().start(id))
     link = Stream().start(id)
     return json.dumps(link)
