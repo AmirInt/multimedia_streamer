@@ -131,8 +131,8 @@ export default {
 	},
 	mounted() {
 		this.fetchItemsOfCategory(this.topChartItems, "http://127.0.0.1:5000/api/movies");
-		this.fetchItemsOfCategory(this.topPickItems, "topPickPath");
-		this.fetchItemsOfCategory(this.fanFavouriteItems, "fanFavePath");
+		this.fetchItemsOfCategory(this.topPickItems, "http://127.0.0.1:5000/api/topPicks");
+		this.fetchItemsOfCategory(this.fanFavouriteItems, "http://127.0.0.1:5000/api/fanFav");
 	}
 }
 </script>
