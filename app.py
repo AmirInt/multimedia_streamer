@@ -2,7 +2,7 @@ from unicodedata import name
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import json
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Movie_Trailer'
@@ -10,7 +10,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 db = SQLAlchemy(app)
 
-cors = CORS(app, resources={'/api': {"origins": "127.0.0.1:5000"}})
+cors = CORS(app, resources={r'/api/*': {"origins": "*"}})
 
 class Movie_Top_Chart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -66,12 +66,13 @@ class Other_Movie(db.Model):
 # Movie_Top_Chart.query.all()
 
 @app.route('/')
+@cross_origin()
 def index():
     return 'Hello!'
 
 
 @app.route('/api/movies')
-
+@cross_origin()
 def get_movies():
     movies = Movie_Top_Chart.query.all()
     output = []
@@ -92,6 +93,7 @@ def get_movies():
     return json.dumps(output)
 
 @app.route('/api/movies/<id>')
+@cross_origin()
 def get_movie(id):
     movie = Movie_Top_Chart.query.get_or_404(id)
     output = [{
@@ -110,6 +112,7 @@ def get_movie(id):
     return json.dumps(output)
 
 @app.route('/api/topPicks')
+@cross_origin()
 def get_top_picks():
     movies = Other_Movie.query.all()
     output = []
@@ -124,6 +127,7 @@ def get_top_picks():
     return json.dumps(output)
 
 @app.route('/api/fanFav')
+@cross_origin()
 def get_fan_fav():
     movies = Other_Movie.query.all()
     output = []
