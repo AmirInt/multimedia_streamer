@@ -1,4 +1,3 @@
-from unicodedata import name
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import json
@@ -148,6 +147,4 @@ def get_fan_fav():
 @app.route('/api/stream/<id>')
 @cross_origin()
 def start_stream(id):
-    # print(Stream().start(id))
-    link = Stream().start(id)
-    return json.dumps(link)
+    return f'./Videos/TopChartMpd/{id}/{id}.mpd'

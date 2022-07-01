@@ -15,6 +15,9 @@ class Stream():
 
         dash = video.dash(Formats.h264())
         dash.representations(_144p, _240p, _360p, _480p, _720p, _1080p, _2k, _4k)
-        dash.output(f'./Videos/TopChartMpd/{movie_id}.mpd')
+        dash.output(f'./Videos/TopChartMpd/{movie_id}/{movie_id}.mpd')
 
-        return f'./Videos/TopChartMpd/{movie_id}.mpd'
+        # return f'./Videos/TopChartMpd/{movie_id}.mpd'
+
+Stream().start(1)
+Stream().start(2)
