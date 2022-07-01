@@ -41,14 +41,30 @@ class Other_Movie(db.Model):
 # db.session.add(Movie_Top_Chart(name='12 Angry Men', address1='/public/movieassets/TopCharts/05.jpg', address2='/public/movieassets/TopCharts/05p.jpg',year=1957, director='Sidney Lumet', score=8.9))
 # db.session.add(Movie_Top_Chart(name="Schindler's List", address1='/public/movieassets/TopCharts/06.jpg', address2='/public/movieassets/TopCharts/06p.jpg',year=1993, director='Steven Spielberg', score=8.9))
 
-db.session.commit()
-Movie_Top_Chart.query.all()
+# # Top picks
+# db.session.add(Other_Movie(name='Good Will Hunting', address='/public/movieassets/TopPicks/01.jpg',year=1997, type=1))
+# db.session.add(Other_Movie(name='Inception', address='/public/movieassets/TopPicks/02.jpg',year=2010, type=1))
+# db.session.add(Other_Movie(name='Lord Of The Rings: The Fellowship Of The Ring', address='/public/movieassets/TopPicks/03.jpg',year=2001, type=1))
+# db.session.add(Other_Movie(name='House Of Gucci', address='/public/movieassets/TopPicks/04.jpg',year=2021, type=1))
+# db.session.add(Other_Movie(name='Fight Club', address='/public/movieassets/TopPicks/05.jpg',year=1999, type=1))
+# db.session.add(Other_Movie(name='Nightmare Alley', address='/public/movieassets/TopPicks/06.jpg',year=2021, type=1))
+# db.session.add(Other_Movie(name='Goodfellas', address='/public/movieassets/TopPicks/06.jpg',year=1990, type=1))
+
+# # Fan favourite
+# db.session.add(Other_Movie(name='Sherlock', address='/public/movieassets/FanFavourite/01.jpg',year=2010, type=2))
+# db.session.add(Other_Movie(name='Star Wars: Revenge Of The Sith', address='/public/movieassets/FanFavourite/02.jpg',year=2005, type=2))
+# db.session.add(Other_Movie(name='Stranger Things', address='/public/movieassets/FanFavourite/03.jpg',year=2016, type=2))
+# db.session.add(Other_Movie(name='The Boys', address='/public/movieassets/FanFavourite/04.jpg',year=2019, type=2))
+# db.session.add(Other_Movie(name='Top Gun Maverick', address='/public/movieassets/FanFavourite/05.jpg',year=2022, type=2))
+
+# db.session.commit()
+# Movie_Top_Chart.query.all()
 
 @app.route('/')
 def index():
     return 'Hello!'
 
-@app.route('api/movies')
+@app.route('/api/movies')
 def get_movies():
     movies = Movie_Top_Chart.query.all()
     output = []
@@ -68,7 +84,7 @@ def get_movies():
     #     output.append(movie_data)
     return json.dumps(output)
 
-@app.route('api/movies/<id>')
+@app.route('/api/movies/<id>')
 def get_movie(id):
     movie = Movie_Top_Chart.query.get_or_404(id)
     output = [{
@@ -86,7 +102,30 @@ def get_movie(id):
     #     output.append(movie_data)
     return json.dumps(output)
 
-@app.route('api/top_picks')
+@app.route('/api/topPicks')
 def get_top_picks():
     movies = Other_Movie.query.all()
-    return 'hello'
+    output = []
+    for movie in movies:
+        if movie.type == 1:
+            output.append({
+                'name': movie.name,
+                'id': movie.id,
+                'address': movie.address,
+                'year': movie.year,
+            })
+    return json.dumps(output)
+
+@app.route('/api/fanFav')
+def get_fan_fav():
+    movies = Other_Movie.query.all()
+    output = []
+    for movie in movies:
+        if movie.type == 2:
+            output.append({
+                'name': movie.name,
+                'id': movie.id,
+                'address': movie.address,
+                'year': movie.year,
+            })
+    return json.dumps(output)
