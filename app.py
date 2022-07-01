@@ -2,10 +2,15 @@ from unicodedata import name
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Movie_Trailer'
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 db = SQLAlchemy(app)
+
+cors = CORS(app, resources={'/api': {"origins": "127.0.0.1:5000"}})
 
 class Movie_Top_Chart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -64,7 +69,9 @@ class Other_Movie(db.Model):
 def index():
     return 'Hello!'
 
+
 @app.route('/api/movies')
+
 def get_movies():
     movies = Movie_Top_Chart.query.all()
     output = []
