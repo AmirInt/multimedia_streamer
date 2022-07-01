@@ -29,7 +29,6 @@ export default {
 					return response.json();
 				})
 				.then((responseJson) => {
-					console.log(responseJson);
 					responseJson.forEach(item => {
 						list.push(item);
 					})

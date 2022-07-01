@@ -35,7 +35,7 @@ export default {
         <Transition>
             <div class="play-trailer" v-show="displayTrailer">
                 <div class="play-trailer-btn">
-                    <img class="play-trailer-img" src="../../public/logos/play-button-svgrepo-com.svg" />
+                    <img class="play-trailer-img" src="/public/logos/play-button-svgrepo-com.svg" />
                     <span>Play Trailer</span>
                 </div>
             </div>

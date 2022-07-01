@@ -3,8 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 from flask_cors import CORS, cross_origin
 
-from stream import Stream
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Movie_Trailer'
 app.config['CORS_HEADERS'] = 'Content-Type'

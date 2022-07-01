@@ -18,4 +18,11 @@
 .video-container {
     width: 60vw;
     min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video {
+    width: 55vw;
 }

@@ -2,7 +2,7 @@ from ffmpeg_streaming import Formats, Bitrate, Representation, Size, input
 
 class Stream():
     def start(self, movie_id):
-        video = input(f'./Videos/TopChart/{movie_id}.mp4')
+        video = input(f'/Videos/TopChart/{movie_id}.mp4')
 
         _144p  = Representation(Size(256, 144), Bitrate(95 * 1024, 64 * 1024))
         _240p  = Representation(Size(426, 240), Bitrate(150 * 1024, 94 * 1024))
@@ -15,7 +15,7 @@ class Stream():
 
         dash = video.dash(Formats.h264())
         dash.representations(_144p, _240p, _360p, _480p, _720p, _1080p, _2k, _4k)
-        dash.output(f'./Videos/TopChartMpd/{movie_id}/{movie_id}.mpd')
+        dash.output(f'/Videos/TopChartMpd/{movie_id}/{movie_id}.mpd')
 
         # return f'./Videos/TopChartMpd/{movie_id}.mpd'
 
